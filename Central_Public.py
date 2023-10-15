@@ -1,5 +1,5 @@
 # CENTRAL AI 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸
-
+# Here is my LinkedIn: https://www.linkedin.com/in/orioncait/
 # Go to https://code.visualstudio.com and install Visual Studio
 # Go to https://huggingface.co/settings/tokens and get a token then paste inside API_TOKEN = ""
 
