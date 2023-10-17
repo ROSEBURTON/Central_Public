@@ -1,5 +1,5 @@
 # CENTRAL AI 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸
-# Here is my LinkedIn: https://www.linkedin.com/in/orioncait/
+
 # Go to https://code.visualstudio.com and install Visual Studio
 # Go to https://huggingface.co/settings/tokens and get a token then paste inside API_TOKEN = ""
 
@@ -212,7 +212,6 @@ technologies_terminologies = [
 'Mean squared error',
 'Mendocino Motor',
 'Microbiome',
-'Microscopic Ball Lightning',
 'Motor Imagery',
 'Multiple linear regression',
 'Naive Bayes classifier',
@@ -340,7 +339,7 @@ technologies_terminologies = [
 'Tensorflow',
 'Tesla Coil',
 'Tesla Transformer',
-'Tesla Wireless System',
+'World Wireless System',
 'Teslas Tower',
 'Tessellation in nature',
 'Testatika',
@@ -405,7 +404,7 @@ def CentralAI_Voicebox(central_response):
     set_central_ai_speaking(False)
 
 
-def idle_beeps():
+def idle_airport_sounds():
     run = 0
     while True:
         if not central_ai_speaking:
@@ -422,7 +421,7 @@ def idle_beeps():
                 sd.wait()
             run += 1
             time.sleep(1.2)
-beep_thread = threading.Thread(target=idle_beeps)
+beep_thread = threading.Thread(target=idle_airport_sounds)
 beep_thread.start()
 
 
@@ -431,7 +430,9 @@ def read_wikipedia_open_visuals(AI_selected_data_term):
     soup = BeautifulSoup(wikipedia_page.text, 'html.parser')
     paragraphs = soup.find_all('p')
     max_paragraphs = len(paragraphs)
-    paragraphs = paragraphs[:max_paragraphs]
+    if max_paragraphs > 3:
+      max_paragraphs = 3
+      paragraphs = paragraphs[:max_paragraphs]
     summary = "\n".join(paragraph.get_text() + "\n" for paragraph in paragraphs)
     for paragraphs in wikipedia_page:
         try:
@@ -458,12 +459,23 @@ total_technologies = len(mixed_technologies)
 
 
 CentralAI_Voicebox("Who is in control of our study session, me or you")
-print("Type (me) or (you)")
-study_controller = input()
-if study_controller == "you":
-    CentralAI_Voicebox("Okay! I will lead this study session")
-if study_controller == "me":
-    CentralAI_Voicebox("Okay! Take control. Let us study together for this session.")
+while True:
+    print("Type (me) or (you)")
+    study_controller = input()
+    
+    if study_controller == "you":
+        CentralAI_Voicebox("Okay! I will lead this study session")
+        break
+    elif study_controller == "me":
+        CentralAI_Voicebox("Okay! Take control and ask questions. Let us study together. I will set the mood.")
+        webbrowser.open("https://www.earthcam.com/usa/louisiana/neworleans/bourbonstreet/?cam=catsmeow2")
+        break
+    else:
+        CentralAI_Voicebox("""So, you need to type either, (me)
+                           if you'd like me to teach you about your terminologies, or (you)
+                           if you'd like to hear me only answer the specific questions you ask me,
+                           there really is only two options
+                           """)
 
 
 def Bio_Logic_silence():
@@ -476,16 +488,22 @@ def Bio_Logic_silence():
         ' meme',
         ' dark humor',
         ' comic',
-        ' cheat sheet'
+        ' cheat sheet',
+        ' infographic',
+        ' concept map',
+        ' 3D model',
+
     ]
     if study_controller == "you":
         ignored_input = get_next_technology()
         selected_image_type = random.choice(engaging_visual)
         url_image = "https://duckduckgo.com/?q=" + ignored_input + selected_image_type + "&iax=images&ia=images"
+        wikipedia_commons = "https://commons.wikimedia.org/w/index.php?search={0}&title=Special:MediaSearch&go=Go&type=image".format(ignored_input)
         AI_interviewer = "https://jobinterview.coach/app-home"
         print("Enhance your employability:", AI_interviewer)
         webbrowser.open(f"https://en.wikipedia.org/wiki/{ignored_input}")
         webbrowser.open(url_image)
+        webbrowser.open(wikipedia_commons)
         read_wikipedia_open_visuals(ignored_input)
         CentralAI_Voicebox(f"Any Questions about the terminology {ignored_input}?")
     else:
@@ -506,6 +524,9 @@ def combine_user_input_and_generated_text(user_input, generated_text):
 
 
 previous_generated_text = ""
+voicebox_timeout = 20
+timeout_duration = 10
+phrase_counts = {}
 
 
 def Mind_Scan_Bio_Logic():
@@ -519,35 +540,58 @@ def Mind_Scan_Bio_Logic():
             audio = recognizer.listen(source, timeout=timeout_duration)
             if audio:
                 user_input = recognizer.recognize_google(audio)
+            
             print(f"You: {user_input}")
             if user_input != "":
                 api_response = AI_Mindset({"inputs": user_input})
                 api_responses.append(api_response[0]["generated_text"])
                 i = 0
-                while i < len(api_responses):
+                timed_out = False
+                start_time = time.time() 
+                while i < len(api_responses) and not timed_out:
                     api_response = AI_Mindset({"inputs": api_responses[i]})
                     generated_text = api_response[0]["generated_text"]
                     if generated_text not in api_responses:
                         api_responses.append(generated_text)
+                    
+                        if generated_text in phrase_counts:
+                            phrase_counts[generated_text] += 1
+                            if phrase_counts[generated_text] > 3:
+                              timed_out = True
+                            else:
+                              phrase_counts[generated_text] = 1
+                        else:
+                            phrase_counts[generated_text] = 1
                     i += 1
+
+                    if time.time() - start_time >= timeout_duration:
+                        timed_out = True
+
                 if len(api_responses) == 1:
                     pass
-            
-                combined_text = combine_user_input_and_generated_text(user_input, api_responses[-1])
-                CentralAI_Voicebox(combined_text.replace(user_input, ""))
-                previous_generated_text = api_responses[-1]
+
+                if timed_out and repeated_phrase_count > 3 and len(phrase_counts) == 1:
+                    repeated_phrase_count = max(phrase_counts.values())
+                    if repeated_phrase_count > 3 and len(phrase_counts) == 1:
+                        CentralAI_Voicebox("I don't know that one")
+
+                else:
+                    combined_text = combine_user_input_and_generated_text(user_input, api_responses[-1])
+                    previous_generated_text = api_responses[-1]
+                    CentralAI_Voicebox(combined_text.replace(user_input, ""))
+                
                 if combined_text.replace(user_input, "").strip():
                   user_input = ""
 
         except sr.UnknownValueError:
             if study_controller == "you":
-              CentralAI_Voicebox("Moving on")
+              CentralAI_Voicebox("Moving on..")
               Bio_Logic_silence()
             pass
 
         except sr.WaitTimeoutError:
             if not user_input and study_controller == "you":
-                CentralAI_Voicebox("Moving on")
+                CentralAI_Voicebox("Moving on..")
                 Bio_Logic_silence()
             pass
 
@@ -561,7 +605,7 @@ def Mind_Scan_Bio_Logic():
                                    quotes for me to answer your questions then restart the terminal.
                                    """)
               else:
-                CentralAI_Voicebox("I am unable to answer your question because I am disconnected..")
+                CentralAI_Voicebox("Error (Other Exception)")
             pass
         
 
