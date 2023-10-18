@@ -5,6 +5,7 @@
 
 # Copy paste the following code line in your terminal below:
 # pip install SpeechRecognition beautifulsoup4 sounddevice gTTS numpy pyaudio
+from requests.exceptions import ConnectionError
 import speech_recognition as sr
 from bs4 import BeautifulSoup
 import sounddevice as sd
@@ -22,7 +23,9 @@ API_TOKEN = "" # Insert your token from Hugging Face in between the " "
 headers = {"Authorization": f"Bearer {API_TOKEN}"}
 study_controller = "you"
 central_ai_speaking = False
-timeout_duration = 8
+voicebox_timeout = 20
+timeout_duration = 10
+phrase_counts = {}
 user_input = ""
 beep_duration = 0.5
 technology_counter = 0
@@ -269,6 +272,7 @@ technologies_terminologies = [
 'Quadratic',
 'Quadratic Formula',
 'Quasi Crystals',
+'Quasi Particle',
 'R squared',
 'ROC curve',
 'Radar Chart',
@@ -339,7 +343,6 @@ technologies_terminologies = [
 'Tensorflow',
 'Tesla Coil',
 'Tesla Transformer',
-'World Wireless System',
 'Teslas Tower',
 'Tessellation in nature',
 'Testatika',
@@ -369,9 +372,11 @@ technologies_terminologies = [
 'Wave Phenomena',
 'Word Cloud',
 'Word embedding',
+'World Wireless System',
 'XGBoost',
 'Yttrium barium-copper oxide',
 'Z score',
+'Reticulum',
 'Z test',
 'Zero Point Energy',
 'Zeta Reticuli',
@@ -385,7 +390,7 @@ mixed_technologies = technologies_terminologies.copy()
 random.shuffle(mixed_technologies)
 
 
-def set_central_ai_speaking(ai_speak_status):
+def is_central_ai_speaking(ai_speak_status):
     global central_ai_speaking
     central_ai_speaking = ai_speak_status
 
@@ -394,14 +399,12 @@ def CentralAI_Voicebox(central_response):
     voicebox = gTTS(text=central_response, lang="en")
     print("🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸")
     print("\n\nCentral AI:", central_response)
-    word_count = len(central_response.split())
-    print("Word Count:", word_count)
     print("\n\n")
-    haptic_file_name = "digital_voice_output.mp3"
-    voicebox.save(haptic_file_name)
-    set_central_ai_speaking(True)
-    os.system(f"afplay {haptic_file_name}")
-    set_central_ai_speaking(False)
+    transcript_file_name = "digital_voice_output.mp3"
+    voicebox.save(transcript_file_name)
+    is_central_ai_speaking(True)
+    os.system(f"afplay {transcript_file_name}")
+    is_central_ai_speaking(False)
 
 
 def idle_airport_sounds():
@@ -464,7 +467,7 @@ while True:
     study_controller = input()
     
     if study_controller == "you":
-        CentralAI_Voicebox("Okay! I will lead this study session")
+        CentralAI_Voicebox("Okay! I will lead how we study today")
         break
     elif study_controller == "me":
         CentralAI_Voicebox("Okay! Take control and ask questions. Let us study together. I will set the mood.")
@@ -491,8 +494,7 @@ def Bio_Logic_silence():
         ' cheat sheet',
         ' infographic',
         ' concept map',
-        ' 3D model',
-
+        ' 3D model'
     ]
     if study_controller == "you":
         ignored_input = get_next_technology()
@@ -524,9 +526,6 @@ def combine_user_input_and_generated_text(user_input, generated_text):
 
 
 previous_generated_text = ""
-voicebox_timeout = 20
-timeout_duration = 10
-phrase_counts = {}
 
 
 def Mind_Scan_Bio_Logic():
@@ -593,6 +592,10 @@ def Mind_Scan_Bio_Logic():
             if not user_input and study_controller == "you":
                 CentralAI_Voicebox("Moving on..")
                 Bio_Logic_silence()
+            pass
+
+        except ConnectionError as e:
+            CentralAI_Voicebox("Connection lost..")
             pass
 
         except Exception:
