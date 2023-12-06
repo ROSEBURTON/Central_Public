@@ -20,7 +20,7 @@ import os
 
 
 API_URL = "https://api-inference.huggingface.co/models/tiiuae/falcon-7b-instruct"
-API_TOKEN = "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" # Insert your token from Hugging Face in between the " "
+API_TOKEN = "" # Insert your token from Hugging Face in between the " "
 headers = {"Authorization": f"Bearer {API_TOKEN}"}
 # study_initiative = "you"
 central_ai_speaking = False
