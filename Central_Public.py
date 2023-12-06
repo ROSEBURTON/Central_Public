@@ -22,7 +22,6 @@ import os
 API_URL = "https://api-inference.huggingface.co/models/tiiuae/falcon-7b-instruct"
 API_TOKEN = "" # Insert your token from Hugging Face in between the " "
 headers = {"Authorization": f"Bearer {API_TOKEN}"}
-# study_initiative = "you"
 central_ai_speaking = False
 voicebox_timeout = 20
 timeout_duration = 9
@@ -698,7 +697,7 @@ def Rewiring_You():
 
         except Exception:
             if user_input:
-              if API_SECRET == "":
+              if API_TOKEN == "":
                 Centrals_Voicebox("""
                                    Go to https://huggingface.co/settings/tokens and 
                                    get a token. You then must copy paste it inside of my API TOKEN above
