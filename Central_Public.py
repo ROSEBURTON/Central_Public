@@ -194,7 +194,6 @@ technology_terminologies = [
 'Generator housing',
 'Genetic twin',
 'Glymphatic system',
-'Golden Ratio',
 'Gradient descent',
 'Graduate Record Examinations',
 'Graphing calculator',
