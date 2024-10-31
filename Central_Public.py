@@ -1,6 +1,4 @@
 # CENTRAL 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸
-
-# Go to https://code.visualstudio.com and install Visual Studio
 # Go to https://huggingface.co/settings/tokens and get a token then paste inside API_TOKEN = ""
 # Copy paste the following code line in your terminal below:
 # pip install SpeechRecognition beautifulsoup4 sounddevice gTTS numpy pyaudio
@@ -21,7 +19,7 @@ import mss
 import cv2
 import os
 
-API_TOKEN = "" # Insert your token from Hugging Face in between the " "
+API_TOKEN = "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" # Insert your token from Hugging Face in between the " "
 API_URL = "https://api-inference.huggingface.co/models/tiiuae/falcon-7b-instruct"
 headers = {"Authorization": f"Bearer {API_TOKEN}"}
 central_ai_speaking = False
@@ -34,12 +32,9 @@ your_statement = ""
 oscillation_duration = 0.5
 technology_count = 0
 technology_terminologies = [
-# Change these terminologies to your liking and according to your field of study
-'19 Tauri',
 'AC motor',
 'AIBO',
 'Acetylation',
-'Acoustic levitation',
 'Acoustic levitation',
 'Action at a distance',
 'Activation function',
@@ -47,29 +42,29 @@ technology_terminologies = [
 'Ad hominem',
 'Aerodynamics',
 'Agree to disagree',
-'Alnico',
 'Alternative hypothesis',
 'Anchoring effect',
-'Anecdotal evidence',
 'Anti-gravity',
 'Anyon',
 'Appeal to tradition',
-'Apple Vision Pro',
 'Aquifer',
 'Argument from ignoranceRoast (comedy)',
 'Artificial neural network',
 'Artificial womb',
 'Associative array',
+'Astronomical unit',
 'Atom',
+'Attribution (copyright)',
 'Attribution bias',
 'Authority bias',
 'Automaton',
 'Availability bias',
-'Axiom',
 'BCI2000',
+'Balkanization',
 'Ball Lightning',
 'Bar Chart',
 'Barnum effect',
+'Base 12 Math',
 'Base rate bias',
 'Belief perseverance',
 'Bias',
@@ -88,6 +83,7 @@ technology_terminologies = [
 'Brain–brain interface',
 'Brain–computer interface',
 'Bubble chart',
+'CERN',
 'Casimir effect',
 'Categorical variable',
 'Cathode',
@@ -96,10 +92,9 @@ technology_terminologies = [
 'Centrifugal Acceleration',
 'Centrifugal force',
 'Chaos Theory',
-'Cherry picking',
+'Cherry picking data',
 'Chi squared test',
 'Chirality (physics)',
-'Chlorophyll',
 'Circular polarization',
 'Cluster analysis',
 'Coefficient of determination',
@@ -111,7 +106,6 @@ technology_terminologies = [
 'Confidence interval',
 'Confirmation bias',
 'Confusion matrix',
-'Conspiracy theory',
 'Continuous or discrete variable',
 'Controversy',
 'Convolutional neural networks',
@@ -119,10 +113,10 @@ technology_terminologies = [
 'Coriolis force',
 'Cosine similarity',
 'Crop Circle Mathematics',
+'Cryogenics',
 'Crystal',
 'Curse of knowledge',
 'Cymatics',
-'Data Structures',
 'Data cleansing',
 'Data mining',
 'Data munging',
@@ -140,6 +134,7 @@ technology_terminologies = [
 'Discrete uniform distribution',
 'Distributed Learning',
 'Document-term matrix',
+'Dolphin',
 'Double standard',
 'Drag (physics)',
 'Dream',
@@ -147,14 +142,15 @@ technology_terminologies = [
 'E8 (mathematics)',
 'Earth battery',
 'Ecocapsule',
+'Ecocapsule',
 'Edwin Gray Electric Motor',
 'Einstein field equations',
 'Electric Field',
+'Electrical resistivity and conductivity',
 'Electrocorticography',
 'Electroencephalography',
 'Electrogravitics',
 'Electrogravity',
-'Electrohydrodynamics',
 'Electromagnetic levitation',
 'Electron',
 'Electron capture',
@@ -164,6 +160,7 @@ technology_terminologies = [
 'Electrostatic generator',
 'Electrostatic levitation',
 'Embarrassment',
+'Emergence',
 'Ensemble methods',
 'Epicyclic gearing',
 'Epigenetics',
@@ -171,12 +168,13 @@ technology_terminologies = [
 'Ethnocentrism',
 'Eugene Mallove',
 'Evolutionary programming',
+'Exoatmospheric Kill Vehicle',
 'Expectancy theory',
-'Exponential distribution',
 'F Distribution',
 'F test',
 'F-score',
 'Factorial',
+'False advertising',
 'False consensus effect',
 'Faster-than-light',
 'Faulty generalization',
@@ -199,13 +197,14 @@ technology_terminologies = [
 'Frequent pattern mining',
 'Functional fixedness',
 'Fundamental Attribution Error',
+'Gaap',
 'Gaia, Inc.',
 'Gamblers Fallacy',
 'Gamification',
 'Garbage in, garbage out',
 'Gas centrifuge',
 'Gaslighting',
-'Gauss\'s law for gravity',
+'Gausss law for gravity',
 'Gaussian mixture model',
 'General Data Protection Regulation',
 'Generalization',
@@ -221,7 +220,6 @@ technology_terminologies = [
 'Gravitational Field',
 'Gravitational Wave',
 'Gravitomagnetism',
-'Grid search',
 'Groupthink',
 'Guilt trip',
 'Gut microbiota',
@@ -231,13 +229,13 @@ technology_terminologies = [
 'Heatmap',
 'Hemisphere (geometry)',
 'Hierarchical clustering',
-'High voltage',
 'Hindsight bias',
 'Histamine',
 'Histogram',
 'Holography',
 'Homopolar generator',
 'Homopolar motor',
+'Honeymoon phase',
 'Human vestigiality',
 'Humane society',
 'Hwang Woo-suk',
@@ -250,18 +248,17 @@ technology_terminologies = [
 'Independent component analysis',
 'Induction motor',
 'Intellectual humility',
+'Interferometers',
 'Interneuron',
 'Internship',
 'Interpolation',
 'Intestinal permeability',
-'Ion-propelled aircraft',
 'Ionic conductivity (solid state)',
-'JSON',
-'K-means clustering',
 'Ketones',
 'Kuiper Belt',
 'LSTM',
 'Laithwaite Engine',
+'Law of Mirrors',
 'Lectin',
 'Li-Fi',
 'Lift (force)',
@@ -269,7 +266,6 @@ technology_terminologies = [
 'Limit (mathematics)',
 'Line chart',
 'Linear Equation',
-'Linear regression',
 'Liquid crystal',
 'List comprehension',
 'List of cognitive biases',
@@ -293,7 +289,6 @@ technology_terminologies = [
 'Manifold learning',
 'Mass flow rate',
 'Mathematical and theoretical biology',
-'Mean absolute error',
 'Mean squared error',
 'Media bias',
 'Mendocino motor',
@@ -301,39 +296,32 @@ technology_terminologies = [
 'Methernitha',
 'Microbiome',
 'Microorganism',
+'Miniaturization',
 'Mirror neuron',
 'Mobbing',
 'Motor imagery',
 'Mucus membranes',
-'Multiple linear regression',
-'Nacelle',
-'Nacelle',
-'Naive Bayes classifier',
+'Nano Accelerator of Particles',
+'Nanotechnology',
 'Natural language processing',
 'Negativity bias',
 'Nervous system',
-'Network theory',
 'Neural networks',
 'Neural oscillation',
 'Neurofeedback',
-'Newman\'s energy machine',
-'Newton\'s law of universal gravitation',
+'Newmans energy machine',
+'Newtons law of universal gravitation',
 'Nikola Tesla',
-'Non-parametric methods',
 'Normative statement',
 'Not invented here',
 'Nuclear Fusion',
-'Nuclear organization',
 'Nuclear reaction',
 'Nuclear transfer',
-'Null hypothesis',
 'Obstruction of justice',
 'One-hot encoding',
 'One-upmanship',
 'Operant conditioning',
 'Optical levitation',
-'Ordinary least squares',
-'Orion (constellation)',
 'Oscillator',
 'Outcome bias',
 'Outlier detection',
@@ -343,28 +331,25 @@ technology_terminologies = [
 'Parallel coordinates',
 'Pareidolia',
 'Passive-aggressive behavior',
+'Pathogen',
 'Patterns in nature',
 'People for the Ethical Treatment of Animals',
 'Perceptron',
-'Performance indicator',
 'Permanent magnet motor',
 'Persistent storage',
 'Photovoltaics',
 'Phyllotaxis',
 'Pipeline (computing)',
 'Plant cognition',
-'Plasma (physics)',
-'Plasma (physics)',
 'Plasma actuator',
+'Platelet',
 'Platelet Rich Plasma',
-'Honeymoon phase',
 'Platonic Solid',
 'Pleiades',
 'Polar Coordinates',
 'Polarization (waves)',
 'Polarization tensor',
 'Polymath',
-'Polynomial regression',
 'Posterior probability',
 'Present bias',
 'Principal component analysis',
@@ -394,12 +379,9 @@ technology_terminologies = [
 'Resonant Frequency',
 'Reticulum',
 'Reversed field pinch',
-'Revolutions per minute',
-'Ridge regression',
 'Rodin coil',
 'Root mean squared error',
 'Rotating magnetic field',
-'Rotational frequency',
 'Rumination (psychology)',
 'Sacred Geometry',
 'Scalar field',
@@ -439,24 +421,22 @@ technology_terminologies = [
 'Status quo bias',
 'Stealth technology',
 'Stem cell',
-'Stereoscopy',
 'Stochastic gradient descent',
 'Straw man',
-'Student\'s t-distribution',
+'Students t-distribution',
 'Subjectivity and objectivity (philosophy)',
 'Subliminal stimuli',
-'Electrical resistivity and conductivity',
+'Subliminal stimuli',
 'Sunk cost',
 'Superconductivity',
 'Support vector machine',
 'Survivorship bias',
 'Sympathetic Resonance',
 'Synaptic pruning',
-'T test',
-'TF-IDF',
 'Tachyon',
 'Tachyonic field',
 'Tacit assumption',
+'Tagyeta',
 'Target variable',
 'Taxonomy (biology)',
 'Telautomatics',
@@ -469,30 +449,26 @@ technology_terminologies = [
 'Thomas Townsend Brown',
 'Thrust vectoring',
 'Time complexity',
-'Time preference',
 'Time series analysis',
 'Topology',
 'Toroidal and poloidal coordinates',
-'Torque',
 'Torsion (mechanics)',
 'Torus',
-'Training, validation, and test data sets',
+'Tractor beam',
 'Transfer learning',
 'Transformer',
-'Treemap',
 'Tri-arcuate ballistic electrode',
 'Triode',
 'Unified Field Quadrangle',
 'Unit Circle',
 'Univariate analysis',
 'Vacuum',
-'Vacuum tube',
 'Variable-frequency drive',
 'Variance',
 'Vector control (motor)',
 'Veganism',
 'Venn Diagram',
-'Vierordt\'s law',
+'Vierordts law',
 'VisionOS',
 'Von Restorff Effect',
 'Vortex ring',
@@ -500,24 +476,15 @@ technology_terminologies = [
 'Water power engine',
 'Wave equation',
 'Waves in plasmas',
+'Wi-Fi',
 'Wishful thinking',
-'Word Cloud',
-'Word embedding',
 'World Wireless System',
 'XGBoost',
 'Xenophobia',
-'Yttrium barium copper oxide',
 'Z score',
 'Z test',
 'Zeigarnik effect',
-'Zero Point Energy',
-'Zeta Reticuli',
-'Zoeppritz equations'
-]
-
-offline_statement = [
-    'I am waiting for the connection to become stable again so that I can continue using the internet'
-    ]
+'Zeta Reticuli' ]
 
 technology_terminologies.sort()
 for organized_term in technology_terminologies:
@@ -525,7 +492,6 @@ for organized_term in technology_terminologies:
 mixed_technologies = technology_terminologies.copy()
 random.shuffle(mixed_technologies)
 print("\nOrganized terms: ^^^")
-# "GCA Test: https://app.codesignal.com/login?redirectUrl=https%3A%2F%2Fapp.codesignal.com%2Farcade"
 # webbrowser.open("https://www.citationmachine.net/apa/cite-a-website")
 # https://www.physicsclassroom.com/Physics-Interactives
 
@@ -534,15 +500,13 @@ def is_central_ai_speaking(ai_speak_status):
     global central_ai_speaking
     central_ai_speaking = ai_speak_status
 
+import os
 
 def Centrals_Voicebox(central_response):
-    voicebox = gTTS(text=central_response)
     print("🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸")
-    print("\n\nCentral AI:", central_response, "\n\n\t-----------------------------------------")
-    transcript_file_to_desktop = "digital_voice_output.mp3"
-    voicebox.save(transcript_file_to_desktop)
+    print("\n\nCentral:", central_response, "\n\n\t-----------------------------------------")
+    os.system(f'say -v Boing "{central_response}"')
     is_central_ai_speaking(True)
-    os.system(f"afplay {transcript_file_to_desktop}")
     is_central_ai_speaking(False)
 
 
@@ -605,12 +569,12 @@ def idle_airport_sounds():
     cycle = 0
     while True:
         if not central_ai_speaking:
-            frequency = 44100
+            frequency = 10100
             formulated_tone = np.linspace(0, oscillation_duration, int(frequency * oscillation_duration), False)
             oscillation = 440.0
             torus_radius = 0.2
             torus_center = 0.5
-            torus_waveform = np.sin(2 * np.pi * oscillation * formulated_tone)
+            torus_waveform = np.sin(0.5 * np.pi * oscillation * formulated_tone)
             torus_waveform *= np.sin(2 * np.pi * torus_radius * np.cos(2 * np.pi * torus_center * formulated_tone))
             torus_waveform *= 0.3
             if cycle % 2 == 0:
@@ -619,7 +583,7 @@ def idle_airport_sounds():
             cycle += 1
             time.sleep(1.2)
 toroid_voicebox = threading.Thread(target=idle_airport_sounds)
-toroid_voicebox.start()
+# toroid_voicebox.start()
 
 
 def Wikipedia_Description(Centrals_selected_term):
@@ -643,8 +607,8 @@ def Wikipedia_Description(Centrals_selected_term):
                 current_terminology = technology_count + 1
                 technology = get_next_technology()
             if "Other reasons this message may be displayed:" not in summary:
-              Centrals_Voicebox(f"Jot down notes on your magnetic board and prepare questions for me to answer, after I teach you about {technology}")
-              Centrals_Voicebox(f"\n\n\t\t     Wikipedia Summary: Terminology {current_terminology} of {total_terminologies}: {technology} ••• \n\t\t\t\t............................ \n{summary}")
+              Centrals_Voicebox(f"Jot down notes on your magnetic board. Prepare questions for me to answer. I now teach you about {technology}")
+              Centrals_Voicebox(f"\n\n\t\t     Terminology Summary: {current_terminology} of {total_terminologies}: {technology} \n\t\t\t\t............................ \n{summary}")
 
         except KeyError:
             continue
@@ -652,32 +616,41 @@ def Wikipedia_Description(Centrals_selected_term):
     return Centrals_Voicebox("No definition found. Deleting terminology\n")
 
 
+import wikipedia
+wikipedia_random = True
+def get_next_technology():
+    global technology_count
+    if wikipedia_random:
+        next_technology = wikipedia.random()
+    else:
+        next_technology = mixed_technologies[technology_count]
+        technology_count = (technology_count + 1) % len(mixed_technologies)
+    return next_technology
+
 def get_next_technology():
     global technology_count
     next_technology = mixed_technologies[technology_count]
     technology_count = (technology_count + 1) % len(mixed_technologies)
     return next_technology
 
-
 total_terminologies = len(mixed_technologies)
 total_terminologies = len(technology_terminologies)
 probability_of_selecting_one_term = 1 / total_terminologies
-probability_as_percentage = probability_of_selecting_one_term * 100
-
+probability_as_percentage = round(probability_of_selecting_one_term * 100)
 
 def change_course():
-    while True: # If something has not been said in a while central automatically teaches
+    while True:
         global study_initiative
         study_initiative = input("""Type one of the options:\n________________________\n
-  💀 (me)\n 🖥️  (you)\n\n\t :::""")
-                    
+  (me)\n (you)\n\t :::""")
+
         if study_initiative == "you":
-            Centrals_Voicebox("Ok, I will lead how we study today.")
+            Centrals_Voicebox("I will lead the study today.")
             Centrals_Voicebox(f"All terminologies have an equal {probability_as_percentage:.2f}% probability of being selected")
             break
 
         elif study_initiative == "me":
-            Centrals_Voicebox("Okay! Take control and ask me questions for clarification.")
+            Centrals_Voicebox("Ask me questions for clarification.")
             break
 
         else:
@@ -686,7 +659,6 @@ def change_course():
                                (you) if you want me to answer your questions
                                """)
 change_course()
-
 
 def Search_Logic_Only():
     engaging_visual = [
@@ -704,7 +676,8 @@ def Search_Logic_Only():
         ' 3D model',
         ' tips',
         ' ideas',
-        ' topology'
+        ' topology',
+        ' '
     ]
     if study_initiative == "you":
         ignored_input = get_next_technology()
@@ -712,24 +685,13 @@ def Search_Logic_Only():
         url_image = "https://duckduckgo.com/?q=" + ignored_input + selected_image_type + "&iax=images&ia=images"
         webbrowser.open(url_image)
         Wikipedia_Description(ignored_input)
-        Centrals_Voicebox(f"Any Questions about the terminology {ignored_input}?")
-
-
-def AI_Mindset(payload):
-    response = requests.post(API_URL, headers=headers, json=payload)
-    json_format = response.json()
-    while "next" in response.links.keys():
-        json_format.extend(response.json())
-        print(json_format.extend(response.json()))
-    return json_format
-
+        # Centrals_Voicebox(f"Any Questions about the terminology {ignored_input}?")
 
 def combine_your_statement_and_generated_text(your_statement, generated_text):
     return your_statement + " " + generated_text
 
-
-def digital_tone(frequency=800.0, duration=1.0, amplitude=0.3):
-    t = np.linspace(0, duration, int(duration * 44100), False)
+def digital_tone(frequency=50.0, duration=1.0, amplitude=0.1):
+    t = np.linspace(0, duration, int(duration * 24100), False)
     waveform = amplitude * np.sin(2 * np.pi * frequency * t)
     return waveform
 
@@ -742,20 +704,21 @@ def Rewiring_You():
     model_responses = []
 
     with sr.Microphone() as source:
-        sd.play(digital_tone(), 44100)
-        print(f"\n\t\t     Central is Listening..\n\t\t🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸\n\n\n\n\n\n\n\n\n\n\n\n")
+        sd.play(digital_tone(), 24100)
+        print(f"\n\t\t     Central is Listening..\n\t\t🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸\n\n\n\n\n\n\n")
 
         try:
-            print("Loading...")
+            print("One moment...\n\n")
+            Search_Logic_Only()
             audio = recognizer.listen(source, timeout=timeout_duration)
-            #your_statement = recognizer.recognize_google(audio) # You want to talk until further notice
-            your_statement = input(">>>")
+            # your_statement = recognizer.recognize_google(audio) # You want to talk until further notice
+            #your_statement = input(">>>")
 
             if study_initiative == "me":
                 print("You said nothing I'm going to check if you want to type")
-                your_statement = input("Type for Central unless you typed already: >>>")
+                your_statement = input("Your Turn: >>>")
 
-            print("You", your_statement)
+            print("\nYou:", your_statement)
 
             if your_statement != "":
                 api_response = AI_Mindset({"inputs": your_statement})
@@ -787,7 +750,6 @@ def Rewiring_You():
                     repeated_phrase_count = max(phrase_counts.values())
                     if repeated_phrase_count > 3 and len(phrase_counts) == 1:
                         Centrals_Voicebox("Hm •• I don't know that one, Timed out")
-                        print("This is executing")
                 else:
                     combined_text = combine_your_statement_and_generated_text(your_statement, model_responses[-1])
                     previous_generated_text = model_responses[-1]
@@ -804,12 +766,13 @@ def Rewiring_You():
 
         except sr.WaitTimeoutError:
             if not your_statement and study_initiative == "you":
-                Centrals_Voicebox("Moving on...........")
+                Centrals_Voicebox("Moving on.....")
                 Search_Logic_Only()
             pass
 
         except ConnectionError:
             Centrals_Voicebox("Connection lost..")
+            time.sleep(10)
             pass
 
         except Exception:
