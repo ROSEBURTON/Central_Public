@@ -19,6 +19,15 @@ import mss
 import cv2
 import os
 
+from flask import Flask
+import webbrowser
+import threading
+
+
+
+
+
+
 API_TOKEN = "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" # Insert your token from Hugging Face in between the " "
 API_URL = "https://api-inference.huggingface.co/models/tiiuae/falcon-7b-instruct"
 headers = {"Authorization": f"Bearer {API_TOKEN}"}
@@ -31,137 +40,86 @@ global your_statement
 your_statement = ""
 oscillation_duration = 0.5
 technology_count = 0
-technology_terminologies = [
-'AC motor',
+
+
+technology_terminologiesa = [
+'Swarru of Erra',
+'Boston Dynamics',
 'AIBO',
-'Acetylation',
 'Acoustic levitation',
 'Action at a distance',
-'Activation function',
 'Actor observer bias',
 'Ad hominem',
 'Aerodynamics',
 'Agree to disagree',
-'Alternative hypothesis',
 'Anchoring effect',
-'Anti-gravity',
 'Anyon',
 'Appeal to tradition',
 'Aquifer',
-'Argument from ignoranceRoast (comedy)',
-'Artificial neural network',
+'Argument from ignorance',
 'Artificial womb',
-'Associative array',
-'Astronomical unit',
 'Atom',
-'Attribution (copyright)',
 'Attribution bias',
 'Authority bias',
-'Automaton',
 'Availability bias',
 'BCI2000',
 'Balkanization',
-'Ball Lightning',
-'Bar Chart',
 'Barnum effect',
 'Base 12 Math',
 'Base rate bias',
 'Belief perseverance',
-'Bias',
 'Biefeld–Brown effect',
-'Big O Notation',
-'Binary classification',
-'Binomial Distribution',
 'Bioelectronics',
 'Bioluminescent bacteria',
-'Bluetooth',
-'Bootstrapping (statistics)',
 'Bragging',
-'Brain-Machine Interface',
 'Brainwave',
 'Brainwave entrainment',
-'Brain–brain interface',
-'Brain–computer interface',
-'Bubble chart',
 'CERN',
 'Casimir effect',
-'Categorical variable',
 'Cathode',
-'Cauchy Distribution',
 'Cell Nucleus',
 'Centrifugal Acceleration',
 'Centrifugal force',
-'Chaos Theory',
 'Cherry picking data',
-'Chi squared test',
 'Chirality (physics)',
 'Circular polarization',
-'Cluster analysis',
-'Coefficient of determination',
 'Cognitive Dissonance',
 'Cold fusion',
-'Competence (human resources)',
-'Complex Numbers',
-'Condescension',
-'Confidence interval',
 'Confirmation bias',
-'Confusion matrix',
-'Continuous or discrete variable',
 'Controversy',
 'Convolutional neural networks',
-'Copyright',
 'Coriolis force',
-'Cosine similarity',
 'Crop Circle Mathematics',
-'Cryogenics',
 'Crystal',
 'Curse of knowledge',
 'Cymatics',
-'Data cleansing',
-'Data mining',
-'Data munging',
-'Data preprocessing',
-'Data wrangling',
-'Database',
+'Buoyant levitation',
 'Delayed gratification',
 'Diamagnetic levitation',
 'Diamagnetism',
 'Dielectric',
-'Differential Equations',
 'Diffusion Limited Aggregation',
-'Dimensionality reduction',
-'Discrete Mathematics',
-'Discrete uniform distribution',
-'Distributed Learning',
-'Document-term matrix',
 'Dolphin',
 'Double standard',
 'Drag (physics)',
-'Dream',
 'Dunning-Kruger Effect',
 'E8 (mathematics)',
 'Earth battery',
 'Ecocapsule',
 'Ecocapsule',
 'Edwin Gray Electric Motor',
-'Einstein field equations',
 'Electric Field',
 'Electrical resistivity and conductivity',
-'Electrocorticography',
 'Electroencephalography',
 'Electrogravitics',
 'Electrogravity',
 'Electromagnetic levitation',
-'Electron',
 'Electron capture',
 'Electronegativity',
 'Electronic skin',
 'Electrostatic',
 'Electrostatic generator',
 'Electrostatic levitation',
-'Embarrassment',
-'Emergence',
-'Ensemble methods',
 'Epicyclic gearing',
 'Epigenetics',
 'Ernst Chladni',
@@ -170,34 +128,24 @@ technology_terminologies = [
 'Evolutionary programming',
 'Exoatmospheric Kill Vehicle',
 'Expectancy theory',
-'F Distribution',
-'F test',
-'F-score',
 'Factorial',
 'False advertising',
 'False consensus effect',
-'Faster-than-light',
 'Faulty generalization',
 'Fearmongering',
-'Feature engineering',
-'Feature scaling',
-'Feedforward neural network',
 'Fermats spiral',
 'Fermentation',
 'Ferrite (magnet)',
 'Ferrofluid',
 'Fibonacci Sequence',
 'Filler (linguistics)',
-'Fleischmann–Pons experiment',
 'Fluid dynamics',
 'Fractal',
 'Fractal-generating software',
 'Free Energy Device',
 'Free range',
-'Frequent pattern mining',
 'Functional fixedness',
 'Fundamental Attribution Error',
-'Gaap',
 'Gaia, Inc.',
 'Gamblers Fallacy',
 'Gamification',
@@ -205,17 +153,11 @@ technology_terminologies = [
 'Gas centrifuge',
 'Gaslighting',
 'Gausss law for gravity',
-'Gaussian mixture model',
-'General Data Protection Regulation',
 'Generalization',
 'Generative Adversarial Network',
 'Generator disks',
-'Generator housing',
 'Glider (aircraft)',
 'Glymphatic system',
-'Golden Ratio',
-'Gradient descent',
-'Graduate Record Examinations',
 'Gravifugal Force',
 'Gravitational Field',
 'Gravitational Wave',
@@ -225,56 +167,39 @@ technology_terminologies = [
 'Gut microbiota',
 'Gyrocompass',
 'Gyroscope',
-'Hash tables',
-'Heatmap',
-'Hemisphere (geometry)',
-'Hierarchical clustering',
 'Hindsight bias',
 'Histamine',
-'Histogram',
 'Holography',
 'Homopolar generator',
 'Homopolar motor',
-'Honeymoon phase',
+'Paramagnetism',
 'Human vestigiality',
 'Humane society',
 'Hwang Woo-suk',
-'Hypothesis test',
 'IKEA effect',
 'Illusory superiority',
 'Immune network theory',
-'Impasse',
 'In-group favoritism',
-'Independent component analysis',
 'Induction motor',
 'Intellectual humility',
 'Interferometers',
-'Interneuron',
 'Internship',
-'Interpolation',
+'Van Allen radiation belt',
 'Intestinal permeability',
 'Ionic conductivity (solid state)',
 'Ketones',
 'Kuiper Belt',
-'LSTM',
 'Laithwaite Engine',
 'Law of Mirrors',
 'Lectin',
-'Li-Fi',
 'Lift (force)',
 'Lift-induced drag',
-'Limit (mathematics)',
-'Line chart',
-'Linear Equation',
 'Liquid crystal',
-'List comprehension',
 'List of cognitive biases',
 'List of particles',
+'Parthenogenesis',
 'Load factor (aeronautics)',
 'Logarithmic Spiral',
-'Logistic regression',
-'Lognormal Distribution',
-'Long short-term memory',
 'Lorentz ether theory',
 'Luminiferous aether',
 'MNIST database',
@@ -286,10 +211,8 @@ technology_terminologies = [
 'Magnifying Transmitter',
 'Magnus effect',
 'Mandelbrot Set',
-'Manifold learning',
 'Mass flow rate',
 'Mathematical and theoretical biology',
-'Mean squared error',
 'Media bias',
 'Mendocino motor',
 'Mere Exposure Effect',
@@ -297,18 +220,12 @@ technology_terminologies = [
 'Microbiome',
 'Microorganism',
 'Miniaturization',
-'Mirror neuron',
 'Mobbing',
-'Motor imagery',
 'Mucus membranes',
 'Nano Accelerator of Particles',
 'Nanotechnology',
-'Natural language processing',
 'Negativity bias',
-'Nervous system',
-'Neural networks',
 'Neural oscillation',
-'Neurofeedback',
 'Newmans energy machine',
 'Newtons law of universal gravitation',
 'Nikola Tesla',
@@ -318,118 +235,75 @@ technology_terminologies = [
 'Nuclear reaction',
 'Nuclear transfer',
 'Obstruction of justice',
-'One-hot encoding',
 'One-upmanship',
 'Operant conditioning',
 'Optical levitation',
+'Au pair program',
 'Oscillator',
 'Outcome bias',
-'Outlier detection',
 'Overconfidence bias',
-'Packet loss',
-'Parabola',
-'Parallel coordinates',
 'Pareidolia',
 'Passive-aggressive behavior',
-'Pathogen',
 'Patterns in nature',
 'People for the Ethical Treatment of Animals',
-'Perceptron',
 'Permanent magnet motor',
-'Persistent storage',
 'Photovoltaics',
 'Phyllotaxis',
-'Pipeline (computing)',
 'Plant cognition',
 'Plasma actuator',
 'Platelet',
 'Platelet Rich Plasma',
 'Platonic Solid',
 'Pleiades',
-'Polar Coordinates',
 'Polarization (waves)',
 'Polarization tensor',
-'Polymath',
-'Posterior probability',
 'Present bias',
-'Principal component analysis',
-'Probability distribution',
 'Procrastination',
 'Psilocybin',
-'Quadratic Formula',
 'Quantum entanglement',
 'Quantum mechanics',
 'Quasi Crystals',
 'Quasiparticle',
-'R squared',
-'ROC curve',
-'Radar chart',
-'Random error',
-'Rapid serial visual presentation',
 'Rare-earth magnet',
 'Rationalization (psychology)',
 'Recency bias',
-'Recurrent neural networks',
-'Redox',
 'Reductio ad absurdum',
 'Regenerative Medicine',
-'Regularization (mathematics)',
 'Reinforcement learning',
-'Resampling (statistics)',
 'Resonant Frequency',
 'Reticulum',
 'Reversed field pinch',
 'Rodin coil',
-'Root mean squared error',
 'Rotating magnetic field',
 'Rumination (psychology)',
 'Sacred Geometry',
-'Scalar field',
 'Scalar field theory',
-'Scatter plot',
 'Scenar Therapy',
 'SciPy',
-'Scientific method',
-'Scikit-learn',
 'Searle Disk',
 'Selective omission',
 'Self serving bias',
 'Self-similarity',
-'Semi-supervised learning',
 'Semmelweis reflex',
-'Set theory',
-'Silhouette (clustering)',
 'Simple Magnetic Overunity Toy',
-'Sine and cosine',
-'Small talk',
+'Superconducting Levitation',
 'Social-desirability bias',
-'Softmax function',
 'Solenoid',
 'Somatic Cell',
 'Somatic Cell Nuclear Transfer',
 'Special pleading',
 'Speciesism',
 'Spermatozoon',
-'Spiral',
 'Spotlight effect',
 'Stan Meyer Water Fuel Car',
-'Standard deviation',
 'Starship Coil',
-'Statistical classification',
-'Statistical inference',
-'Statistical tests',
 'Status quo bias',
-'Stealth technology',
 'Stem cell',
-'Stochastic gradient descent',
 'Straw man',
-'Students t-distribution',
 'Subjectivity and objectivity (philosophy)',
-'Subliminal stimuli',
 'Subliminal stimuli',
 'Sunk cost',
 'Superconductivity',
-'Support vector machine',
 'Survivorship bias',
 'Sympathetic Resonance',
 'Synaptic pruning',
@@ -437,78 +311,136 @@ technology_terminologies = [
 'Tachyonic field',
 'Tacit assumption',
 'Tagyeta',
-'Target variable',
 'Taxonomy (biology)',
 'Telautomatics',
 'Telomeres',
-'Tensor',
 'Tensorflow',
 'Tesla Coil',
 'Testatika',
 'Theta wave',
 'Thomas Townsend Brown',
 'Thrust vectoring',
-'Time complexity',
-'Time series analysis',
-'Topology',
 'Toroidal and poloidal coordinates',
 'Torsion (mechanics)',
 'Torus',
 'Tractor beam',
-'Transfer learning',
-'Transformer',
 'Tri-arcuate ballistic electrode',
 'Triode',
 'Unified Field Quadrangle',
-'Unit Circle',
-'Univariate analysis',
 'Vacuum',
 'Variable-frequency drive',
-'Variance',
-'Vector control (motor)',
-'Veganism',
-'Venn Diagram',
+'Nutri-Score',
 'Vierordts law',
-'VisionOS',
 'Von Restorff Effect',
 'Vortex ring',
 'Wardenclyffe Tower',
 'Water power engine',
-'Wave equation',
 'Waves in plasmas',
-'Wi-Fi',
 'Wishful thinking',
 'World Wireless System',
-'XGBoost',
+'Deep Underground Military Bases',
 'Xenophobia',
-'Z score',
-'Z test',
 'Zeigarnik effect',
-'Zeta Reticuli' ]
+'Zeta Reticuli']
+
+import tkinter as tk
+from tkinter import simpledialog
+import sys
+search_url = "sdf"
+
+
+search_url = f"https://www.google.com/search?hl=en&tbm=isch&q=aibo"
+
+
+app = Flask(__name__)
+@app.route('/')
+
+
+def get_terminology_summaries():
+    """Retrieve and return the first paragraph and a relevant image of each Wikipedia page for each term in the list."""
+    technology_terminologies = sorted(technology_terminologiesa)
+    result = " \n\n"
+    desktop_path = "/Users/ialvector/Desktop/Booklet"
+    for current_terminology, term in enumerate(technology_terminologies, start=1):
+        wikipedia_page = requests.get(f"https://en.wikipedia.org/wiki/{term}")
+        soup = BeautifulSoup(wikipedia_page.text, 'html.parser')
+        paragraphs = soup.find_all('p')
+        if paragraphs:
+            summary = paragraphs[0].get_text().strip()
+            if "Other reasons this message may be displayed:" in summary:
+                summary = "No definition found."
+        else:
+            summary = "No definition found."
+        infobox = soup.find('table', {'class': 'infobox'})
+        image_tag = None
+        if infobox:
+            image_tag = infobox.find('img')
+        local_image_path = os.path.join(desktop_path, f"{term}.jpeg")
+        print(f"Checking local image path: {local_image_path}")
+
+        if os.path.exists(local_image_path):
+            image_url = f"http://localhost:8000/{term}.jpeg"
+            print(f"Local image found for {term}: {image_url}")
+            result += f"<img src='{image_url}' alt='{term}' style='width:200px;height:auto;'><br>"
+        else:
+            print(f"No local image found for {term}.")
+            if image_tag:
+                image_url = image_tag['src']
+                if image_url.startswith('//'):
+                    image_url = "https:" + image_url
+                print(f"Image URL for {term}: {image_url}")
+                result += f"<img src='{image_url}' alt='{term}' style='width:200px;height:auto;'><br>"
+            else:
+                print(f"No image found on Wikipedia for {term}.")
+
+        result += f"<br>Terminology Summary {current_terminology} of {len(technology_terminologies)}: {term}<br><br>"
+        result += "............................<br>"
+        result += f"{summary}<br>"
+    return result
+
+
+if __name__ == '__main__':
+    webbrowser.open_new('http://127.0.0.1:5000/')
+    app.run(debug=True, use_reloader=False)
+
+
+
+
+
+
+
+
+
+
+
+for term in technology_terminologies:
+    url = search_url + term.replace(" ", "+")  # Replace spaces with '+' for the URL
+    webbrowser.open(url)
+    time.sleep(20)
 
 technology_terminologies.sort()
 for organized_term in technology_terminologies:
-    print(f"'{organized_term}',")
+    #print(f"'{organized_term}',")
+    print("")
 mixed_technologies = technology_terminologies.copy()
 random.shuffle(mixed_technologies)
-print("\nOrganized terms: ^^^")
-# webbrowser.open("https://www.citationmachine.net/apa/cite-a-website")
-# https://www.physicsclassroom.com/Physics-Interactives
 
+
+# webbrowser.open("https://www.citationmachine.net/apa/cite-a-website")
 
 def is_central_ai_speaking(ai_speak_status):
     global central_ai_speaking
     central_ai_speaking = ai_speak_status
 
-import os
 
-def Centrals_Voicebox(central_response):
+def Centrals_Voicebox(central_response, rate=195):  # You can adjust the default rate here
     print("🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸")
     print("\n\nCentral:", central_response, "\n\n\t-----------------------------------------")
-    os.system(f'say -v Boing "{central_response}"')
+    os.system(f'say -v Boing -r {rate} "{central_response}"')  # Added -r option for rate
     is_central_ai_speaking(True)
     is_central_ai_speaking(False)
 
+# I am at a Job Corps center, and I am a residential student. At about 8pm, residential students can have snacks. I have scanned the barcodes on the most common snacks they provide on the Yuka application, and I am astonished by the number of hazardous additives and their potential effects on human health. One of my pals, who is also residential, got a Rice Krispy, and I informed her that many hazardous additives can cause health disorders, such as potentially carcinogenic and neurotoxic hazardous additives of snacks of hers that I have specifically scanned that are snacks that are commonly being given out. I was hoping you could explain what Yuka is and write an email to the Health and Wellness department to require the kitchen staff to only allow all snacks that are above a nutriscore of 80/100. In the email, also let them know that I will provide below example scans of consumables that the workers of our Job Corps are giving to residential students as common snacks. I would also like it if this could be applied to all foods brought into the cafeteria for students during breakfast, lunch, and dinner since those meals are incredibly influential on the health and cells of the bodies of students. Also have this rule applied to not just snacks and meals but also the hygiene bags provided to new residential students with substances that are applied to their bodies that can also be Endocrine disruptors, allergens, or irritants such as their shampoo, conditioner, body bar soap, toothpaste, mouthwash, shaving cream, tampons, and deodorant. Also not only do the foods for snacks and ingredients for meals need to be scanned before being brought into job corps to feed the students but also the snacks within the vending machines
 
 def get_monitor_info():
     top = 0
@@ -567,23 +499,41 @@ def predict_camera_and_screen_content(frames_per_epoch=30, prediction_delay=2):
 
 def idle_airport_sounds():
     cycle = 0
+    frequency = 44100  # Sample rate
+    oscillation_duration = 1.0  # Duration of the sound in seconds
+    volume = 0.1  # Volume scaling factor (0.0 to 1.0)
+    
     while True:
         if not central_ai_speaking:
-            frequency = 10100
             formulated_tone = np.linspace(0, oscillation_duration, int(frequency * oscillation_duration), False)
-            oscillation = 440.0
-            torus_radius = 0.2
-            torus_center = 0.5
-            torus_waveform = np.sin(0.5 * np.pi * oscillation * formulated_tone)
-            torus_waveform *= np.sin(2 * np.pi * torus_radius * np.cos(2 * np.pi * torus_center * formulated_tone))
-            torus_waveform *= 0.3
+            left_oscillation = 432.0
+            right_oscillation = 528.0
+            left_waveform = np.sin(2 * np.pi * left_oscillation * formulated_tone) * volume
+            right_waveform = np.sin(2 * np.pi * right_oscillation * formulated_tone) * volume
+            stereo_waveform = np.column_stack((left_waveform, right_waveform))
+
             if cycle % 2 == 0:
-                sd.play(torus_waveform, frequency)
+                sd.play(stereo_waveform, frequency)
                 sd.wait()
             cycle += 1
             time.sleep(1.2)
 toroid_voicebox = threading.Thread(target=idle_airport_sounds)
-# toroid_voicebox.start()
+toroid_voicebox.start()
+
+
+def get_wikipedia_summary(term):
+    """Retrieve the first paragraph of a Wikipedia page for the given term."""
+    wikipedia_page = requests.get(f"https://en.wikipedia.org/wiki/{term}")
+    soup = BeautifulSoup(wikipedia_page.text, 'html.parser')
+    paragraphs = soup.find_all('p')
+    if paragraphs:
+        summary = paragraphs[0].get_text().strip()
+        if "Other reasons this message may be displayed:" not in summary:
+            return summary
+    return "No definition found."
+
+
+
 
 
 def Wikipedia_Description(Centrals_selected_term):
@@ -593,12 +543,11 @@ def Wikipedia_Description(Centrals_selected_term):
     total_wikipedia_paragraphs = len(paragraphs)
     
     if total_wikipedia_paragraphs >= 3:
-      paragraphs = paragraphs[:1] # Small amount of paragraphs for testing
+      paragraphs = paragraphs[:1]
       total_wikipedia_paragraphs = 3
 
     elif total_wikipedia_paragraphs <= 2:
         Centrals_Voicebox(f"Term has {total_wikipedia_paragraphs} paragraph: {Centrals_selected_term}")
-        time.sleep(10)
     summary = "\n".join(paragraph.get_text() + "\n" for paragraph in paragraphs)
 
     for paragraphs in wikipedia_page:
@@ -607,9 +556,8 @@ def Wikipedia_Description(Centrals_selected_term):
                 current_terminology = technology_count + 1
                 technology = get_next_technology()
             if "Other reasons this message may be displayed:" not in summary:
-              Centrals_Voicebox(f"Jot down notes on your magnetic board. Prepare questions for me to answer. I now teach you about {technology}")
-              Centrals_Voicebox(f"\n\n\t\t     Terminology Summary: {current_terminology} of {total_terminologies}: {technology} \n\t\t\t\t............................ \n{summary}")
-
+              #Centrals_Voicebox(f"I now teach you about {technology}")
+              print(f"\n\n\t\t     Terminology Summary: {current_terminology} of {total_terminologies}: {technology} \n\t\t\t\t............................ \n{summary}")
         except KeyError:
             continue
         return f"\n\n{soup_of_desirable_text.get_text()}"
@@ -645,7 +593,7 @@ def change_course():
   (me)\n (you)\n\t :::""")
 
         if study_initiative == "you":
-            Centrals_Voicebox("I will lead the study today.")
+            Centrals_Voicebox("I will lead this study today.")
             Centrals_Voicebox(f"All terminologies have an equal {probability_as_percentage:.2f}% probability of being selected")
             break
 
@@ -664,19 +612,16 @@ def Search_Logic_Only():
     engaging_visual = [
         ' cartoon',
         ' mnemonic device',
-        ' joke',
         ' gif',
         ' meme',
         ' dark humor',
         ' pun',
-        ' comic',
         ' cheat sheet',
         ' infographic',
         ' diagram',
         ' 3D model',
         ' tips',
         ' ideas',
-        ' topology',
         ' '
     ]
     if study_initiative == "you":
@@ -695,8 +640,6 @@ def digital_tone(frequency=50.0, duration=1.0, amplitude=0.1):
     waveform = amplitude * np.sin(2 * np.pi * frequency * t)
     return waveform
 
-
-# Even with only using the keyboard Central will be talking anyways so what's the point
 def Rewiring_You():
     global your_statement, previous_generated_text
     recognizer = sr.Recognizer()
@@ -707,13 +650,11 @@ def Rewiring_You():
         sd.play(digital_tone(), 24100)
         print(f"\n\t\t     Central is Listening..\n\t\t🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸 🛸\n\n\n\n\n\n\n")
 
+
         try:
-            print("One moment...\n\n")
+            #Centrals_Voicebox("One moment...\n\n")
             Search_Logic_Only()
             audio = recognizer.listen(source, timeout=timeout_duration)
-            # your_statement = recognizer.recognize_google(audio) # You want to talk until further notice
-            #your_statement = input(">>>")
-
             if study_initiative == "me":
                 print("You said nothing I'm going to check if you want to type")
                 your_statement = input("Your Turn: >>>")
