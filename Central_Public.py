@@ -37,7 +37,7 @@ oscillation_duration = 0.5
 technology_count = 0
 
 
-"""
+technology_terminologiesa = [
 'AIBO',
 'Acoustic levitation',
 'Action at a distance',
@@ -186,11 +186,6 @@ technology_count = 0
 'Lift (force)',
 'Lift-induced drag',
 'Liquid crystal',
-
-"""
-
-technology_terminologiesa = [
-
 'List of cognitive biases',
 'List of particles',
 'Load factor (aeronautics)',
@@ -265,12 +260,6 @@ technology_terminologiesa = [
 'Rare-earth magnet',
 'Rationalization (psychology)',
 'Recency bias',
-
-
-]
-
-"""
-
 'Reductio ad absurdum',
 'Regenerative Medicine',
 'Reinforcement learning',
@@ -298,6 +287,7 @@ technology_terminologiesa = [
 'Speciesism',
 'Spermatozoon',
 'Spotlight effect',
+'Stallion 3D: Aerodynamics Simulation Software',
 'Stan Meyer Water Fuel Car',
 'Starship Coil',
 'Status quo bias',
@@ -338,6 +328,7 @@ technology_terminologiesa = [
 'Variable-frequency drive',
 'Vierordts law',
 'Von Restorff Effect',
+'Voronoi diagram',
 'Vortex ring',
 'Wardenclyffe Tower',
 'Water power engine',
@@ -345,10 +336,12 @@ technology_terminologiesa = [
 'Wishful thinking',
 'World Wireless System',
 'Xenophobia',
-'Zeigarnik effect',
-'Zeta Reticuli',
-"Stallion 3D: Aerodynamics Simulation Software"
-"""
+'Zeigarnik effect'
+
+]
+
+print(len(technology_terminologiesa))
+
 
 
 technology_terminologiesa.sort()
@@ -491,7 +484,7 @@ image_dict = {
         "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.eTeupAGmeSLsRv5sSR6MYAHaEK%26pid%3DApi&f=1&ipt=14467ae5a27a1d559864202072f7610297bb3f9a85cd8a9ca76cf0181d8a4cc7&ipo=images"
     ],
         "Ecocapsule": [
-        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.n817hjawuIDecd9frtq9KQHaFj%26pid%3DApi&f=1&ipt=134f9aeeb4be4bb681dcb6c3da6e6e2e9c2f701574f4166e87fdc3ce6080439d&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.xPho0jVfNRO2WS5EHtxezwHaE8%26pid%3DApi&f=1&ipt=c61b536f9b20f3cad346dd0ad1b56986e71daa01d96baf8b9575456801c00634&ipo=images",
         "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.ACSmtVGh88G0reuoObHJiwHaHa%26pid%3DApi&f=1&ipt=3ee8f75527f655201b6b3c81421c09c2da316eaa600eb1bd23a60bad6b9a6b69&ipo=images",
         "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.Qew8NbLorigcGQt4Qjy1SwHaLH%26pid%3DApi&f=1&ipt=645b1742cf1392d960696e85761a9977975903df6a19868e8e48b83619d84228&ipo=images",
         "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.VuPQm7j0TLrjRvbr9GjheQHaLF%26pid%3DApi&f=1&ipt=deaf8d681ce9a0095f9796dbdc0453d0f09619264f3acf03440af6562f831a02&ipo=images"
@@ -607,137 +600,253 @@ image_dict = {
         "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.NflWmR_Do0_0oY9xIHAriAHaEB%26pid%3DApi&f=1&ipt=77840a69dd30917854ab5540a329fd692c275c2ea5a11024955a41774ee88fe8&ipo=images"
     ],
             "Lyra": [
-        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.2ZAD6kBX3TMLVXrJFaI4UgHaEg%26pid%3DApi&f=1&ipt=1208d2a43b40d7d48f3e2c6deb791a9805c219fa0b55aca7ae96bf7e3f3d94a5&ipo=images",
-        ""
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.2ZAD6kBX3TMLVXrJFaI4UgHaEg%26pid%3DApi&f=1&ipt=1208d2a43b40d7d48f3e2c6deb791a9805c219fa0b55aca7ae96bf7e3f3d94a5&ipo=images"
     ],
             "Mach number": [
-        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.WKgwzgnstQxPj4bGKEt6jwHaFj%26pid%3DApi&f=1&ipt=0db504b77425b51867191b8993a1e8439e318e9f322221563c01c891d4a45e83&ipo=images",
-        ""
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.WKgwzgnstQxPj4bGKEt6jwHaFj%26pid%3DApi&f=1&ipt=0db504b77425b51867191b8993a1e8439e318e9f322221563c01c891d4a45e83&ipo=images"
     ],
             "Magnetic Field": [
-        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.k4WVM358VA8rF5BjFwANmAHaEK%26pid%3DApi&f=1&ipt=f295bd666c02b7361c64b5c30240fc81fd47e748e21dbf7cb5be12c01d4f4deb&ipo=images",
-        ""
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.k4WVM358VA8rF5BjFwANmAHaEK%26pid%3DApi&f=1&ipt=f295bd666c02b7361c64b5c30240fc81fd47e748e21dbf7cb5be12c01d4f4deb&ipo=images"
     ],
             "Magnetic levitation globe": [
-        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.jL2ILA9g1eAvD9N7QIFOAgHaGe%26pid%3DApi&f=1&ipt=ae92955091375c6f9f2b00a6864ef828d0590013219a68a8718655d65beea439&ipo=images",
-        ""
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.jL2ILA9g1eAvD9N7QIFOAgHaGe%26pid%3DApi&f=1&ipt=ae92955091375c6f9f2b00a6864ef828d0590013219a68a8718655d65beea439&ipo=images"
     ],
             "Magnus effect": [
-        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.lM85jv_qlk65kBTK4mcLogHaEM%26pid%3DApi&f=1&ipt=374894cdbfdb0f9237d7ad6c0c7a0e0d4326ad79748c157b1a56dcbecb105e0c&ipo=images",
-        ""
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.lM85jv_qlk65kBTK4mcLogHaEM%26pid%3DApi&f=1&ipt=374894cdbfdb0f9237d7ad6c0c7a0e0d4326ad79748c157b1a56dcbecb105e0c&ipo=images"
     ],
                 "Mandelbrot Set": [
-        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.55J8gcJk_0h2N2b6USfQmgHaE3%26pid%3DApi&f=1&ipt=9fbc922cdf07541a15df0ca8deddd94d2fc9eb72f072b6da9698b6ac9bf4eaa0&ipo=images",
-        ""
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.55J8gcJk_0h2N2b6USfQmgHaE3%26pid%3DApi&f=1&ipt=9fbc922cdf07541a15df0ca8deddd94d2fc9eb72f072b6da9698b6ac9bf4eaa0&ipo=images"
     ],
-            "": [
-        "",
-        ""
+            "Negativity bias": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.BMdfDFPHmqIbq3f4V0OhUgHaHa%26pid%3DApi&f=1&ipt=f8f85b1cd75cd27091a8557dd7fe125a12720d64fbce044f6b9ee6d5b85f6253&ipo=images"
     ],
-            "": [
-        "",
-        ""
+            "Nuclear transfer": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP._ghMDxA9reMKoANIHP4YaAAAAA%26pid%3DApi&f=1&ipt=841bffe05838a6e52ebc5645c80406009a9575c4ce5dc101f1644ed58fc5d72a&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.TWfmslfE4R9OGxHKk2b_uwHaHa%26pid%3DApi&f=1&ipt=f57294f1b67751cb0c5c31000f339a4dfef2410fe926b3e696790c2cf0773e3a&ipo=images"
     ],
-            "": [
-        "",
-        ""
+            "Nutri-Score": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.EBVm956OLJ_N4KWFX8PFigHaHa%26pid%3DApi&f=1&ipt=0e809c238172444cc8bcbbec15cb451951465c3e290fd1a4f20e68c42b84c6a3&ipo=images"
     ],
-            "": [
-        "",
-        ""
+            "Obstruction of justice": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.eHcf-v66pbQVS1JA7wfragHaFt%26pid%3DApi&f=1&ipt=fbc7478ebe27b33f486104adf69f4fd3265b04dca19518a427b00342d5348112&ipo=images"
     ],
-            "": [
-        "",
-        ""
+            "One-upmanship": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.RgPUvhtgrTfXIcYaF36ZFwHaGC%26pid%3DApi&f=1&ipt=da89f21ce7bc58f94f30ea02cb5bdb539db9435a25d4e80b7cb6fae6864d449b&ipo=images"
     ],
-            "": [
-        "",
-        ""
+            "Operant conditioning": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.3NUTBAJjur2yQTphhCJhCwHaD7%26pid%3DApi&f=1&ipt=6942c8eb11fb9529efe86dddb3ad71759db4585d73b6bb1bc39a1bf74b3fbce1&ipo=images"
     ],
-                "": [
-        "",
-        ""
+                "Oscillator": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.us6hCXVXasQjuub8xWddIgHaEK%26pid%3DApi&f=1&ipt=a190bd6ac78ef6bc5c278eb6267b0d1cdb8c675cc51809e9a66fe2df8c017727&ipo=images"
     ],
-            "": [
-        "",
-        ""
+            "Pareidolia": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.hD4lK7vu4kC3yJyRObTeDQHaD4%26pid%3DApi&f=1&ipt=73d68932ae86ea12c22d72a52890bd53f5f92eb09326f7771e67bc0e7f92ac08&ipo=images"
     ],
-            "": [
-        "",
-        ""
+            "Parthenogenesis": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.YEGAvzUuJK31Pa7RWZnjAAHaEK%26pid%3DApi&f=1&ipt=2475cbdb5d36f3ed8cf6bda0a34d152a8026314a8b393bf1f7cda06a727d0bd1&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.vbPPuTPu6pXVJAuiQZIqJQAAAA%26pid%3DApi&f=1&ipt=b7889d72f894302fb369bbf6254d96de274550b41c0bb9bea46f80deffc0e28d&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.3pdIrmZoCxtfofVF6qmxOQHaEk%26pid%3DApi&f=1&ipt=82d308adbccea5bf12ee7c3704c2c9b325e8dfa5866b1a125c4e35c015c15324&ipo=images"
     ],
-            "": [
-        "",
-        ""
+            "Patterns in nature": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.8dGp65pi7dC8FDRSgy7lcQHaD-%26pid%3DApi&f=1&ipt=822e698a238e1e425c2a836ef20c854cb5663ed650a1df2d7f71addd99ba095a&ipo=images"
     ],
-            "": [
-        "",
-        ""
+            "People for the Ethical Treatment of Animals": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.AluT_diBkp9Ba_lMXfJEjwHaE7%26pid%3DApi&f=1&ipt=ff330aea1ecf0f448ac74934a93559fe750fbc0c84147371eb2a4fe23aafca97&ipo=images"
     ],
-            "": [
-        "",
-        ""
+            "Permanent magnet motor": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.sxtEd8GoBTsnGojFl-odbQHaES%26pid%3DApi&f=1&ipt=4bd551021fe60da818f75a93a3fc42f744f8a413e5f94be7b86ed60fe18a74c7&ipo=images"
     ],
-            "": [
-        "",
-        ""
+            "Phyllotaxis": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.jk6NugpqZVKgy-GgtW5FqwHaFp%26pid%3DApi&f=1&ipt=c6ad72fddfb90a4d15928d7c082c4db4fbc8dac368f2c2e5df05c13111170b7f&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.u6k8kBM4SkIK1aFDgdP5pAHaHa%26pid%3DApi&f=1&ipt=d41198cd61e00e4e98cbab8db84722dc0bc1d30ac1bab2fd05c7b3f75adebee7&ipo=images"
     ],
-                "": [
-        "",
-        ""
+                "Platelet Rich Plasma": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.ty1Bjv8wtY0UU2-xC6nT4QHaHV%26pid%3DApi&f=1&ipt=cb2846f60ecdecaa0a10fa8d912e748ad67b9bd0b79f4ce52caa389d5ef0b95d&ipo=images"
     ],
-            "": [
-        "",
-        ""
+            "Platonic Solid": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.qlMrmTgmcEOcGSMKcC4WBgHaF0%26pid%3DApi&f=1&ipt=75e3b7e48e4a504fbfde154f26e530668143ba30f7908012e0cc1c8cd63fe3f5&ipo=images"
     ],
-            "": [
-        "",
-        ""
+            "Pleiades": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.3vfy6k9q1QCUIphOwzaZZwHaGB%26pid%3DApi&f=1&ipt=130eaecb8a80a42d1442b364417e5a8090145f19b9ea39cd97480ee0824e30c0&ipo=images"
     ],
-            "": [
-        "",
-        ""
+            "Polarization (waves)": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.T4eOHFTVw0G6JuJqCU_SHgHaDi%26pid%3DApi&f=1&ipt=f8fcce01f1476726766c2eb21eba957e19ff3ba83d7d6466bb2cdc9fa66290d6&ipo=images"
     ],
-            "": [
-        "",
-        ""
+            "Present bias": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.i8ynugewcszS3EIzHcUe-gAAAA%26pid%3DApi&f=1&ipt=aaa8183e48c15164e331531c012ccea2660755fe71a1a429349ea8189a107b2e&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.K6XZV0tBzlXSuZTJDN74DwHaD4%26pid%3DApi&f=1&ipt=939b40524bb5d491d41f8eb2bd2a24c71abefeca5a52e8d8abe412e1636ec781&ipo=images"
     ],
-            "": [
-        "",
-        ""
+            "Procrastination": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Yzizq1iH6QxM1ht4IjRYBwHaE5%26pid%3DApi&f=1&ipt=c118c4f0401d54cc7c455397e5dfc02b20cb7fb243a4b419aa05a6a19571f445&ipo=images"
     ],
-            "": [
-        "",
-        ""
+            "Psilocybin": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.WA89hESggyhU8yRYfrGldwHaE8%26pid%3DApi&f=1&ipt=18a6a4d537359c4bbf7e79307216a069ecad53548976614870d0a9f19bbd2668&ipo=images"
     ],
-                "": [
-        "",
-        ""
+                "Quantum mechanics": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.uGgjhC2G2KeH6ZymeTBOvQHaFk%26pid%3DApi&f=1&ipt=539fee27743b7f9e011facc2a273d9503138ad8238b1111a18564fbe61989b2f&ipo=images"
     ],
-            "": [
-        "",
-        ""
+            "Quasi Crystals": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.M0QGdfdGhlkOYmePQWovIQHaG4%26pid%3DApi&f=1&ipt=0126afd2eb21032b59d779d36040d4e11f5ea89327f81368675200d61b578940&ipo=images"
     ],
-            "": [
-        "",
-        ""
+            "Reductio ad absurdum": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.explicit.bing.net%2Fth%3Fid%3DOIP.NSe7f_BsrQF0wfQuucAH2gHaGc%26pid%3DApi&f=1&ipt=69e638af1a98ca066f1ef2e47cabefacac549f17ba6daad813932e6b52f09d8f&ipo=images"
     ],
-            "": [
-        "",
-        ""
+            "Regenerative Medicine": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.VyhF4GEI7rcTCGurcNOJ6gHaFO%26pid%3DApi&f=1&ipt=919f4b2fe7f1fd07b76f4a099340c66f5b577346a69a84a4172ec30e87ed4242&ipo=images"
     ],
-            "": [
-        "",
-        ""
+            "Reversed field pinch": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.b5YwxKXP0KhJN7FQR3MnJQHaFV%26pid%3DApi&f=1&ipt=9288b8b3ca0c9e315da00f1c729104e06a83764caf08e55f8512ce4ab9e4bd1e&ipo=images"
     ],
-            "": [
-        "",
-        ""
+            "Rodin coil": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.D57PAV4tWxOD52rLM7y3eQHaH2%26pid%3DApi&f=1&ipt=ea8d254640624f1f6e09a8309cafcc7974f1c0ef1a714e66400f0b656c00fbf5&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.6Mv3thME2rCcF6o9aZsMHwHaEK%26pid%3DApi&f=1&ipt=4d41946b179b9bda7a39119d3eb30647317aa21a6fc78a269a0fd8aa72bee0f4&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.explicit.bing.net%2Fth%3Fid%3DOIP.6lzChOMw0bnVoc50uSEssAHaE9%26pid%3DApi&f=1&ipt=66ac3ba02238fda1487b76518f0ca9532e8d67c1cd16064ee1e9ef85bc3b1935&ipo=images"
     ],
-            "": [
-        "",
-        ""
+            "Rotating magnetic field": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.92nV-C7Wtp3MiTocQhVB7wHaEw%26pid%3DApi&f=1&ipt=1f1f2c257842fe62aa7e9d06491eacb98f1ee0c41a7a48117a600c22983905f9&ipo=images"
     ],
+                "Rumination (psychology)": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.KOtOVoC572ZKnFb3mkp4NgHaDt%26pid%3DApi&f=1&ipt=13532b5e7d1c5e9925b4236dd4071d16db0ca2e912cb5c9400a5d4e725451592&ipo=images"
+    ],
+                "Scenar Therapy": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.xb-F2qyVE7YO8zJ_hwjeMgAAAA%26pid%3DApi&f=1&ipt=948f028843e9bbf8dfc4bba089d111d745ff9ab3aa5b61f89f8f3d7c2e295fc0&ipo=images"
+    ],
+                "Searle Disk": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.ptWxAQTTSn6AQ-kWv1teSQHaE7%26pid%3DApi&f=1&ipt=bb4d99676c2ec69d66a8c3e627c107d6d22b33346c4f3e7d2d080a30ef3a6c0c&ipo=images"
+    ],
+                "Self serving bias": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.Veauq9pZr6aBnZJPn8YfUQHaEo%26pid%3DApi&f=1&ipt=ccf62c2292f48dfc3cf909595ea6d08d714f54aad31088fc0c93275501b6b3e6&ipo=images"
+    ],
+                "Self-similarity": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.tBdiovyl6_Ahzquf8VYxhwHaJJ%26pid%3DApi&f=1&ipt=54b374782689b9e8136ff09114cede1c3aec32ab2f584e58f5cb787d50d1ea13&ipo=images"
+    ],
+                "Romanesco broccoli": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.S3fVYdrcRJzsRQWax6uZgwHaHa%26pid%3DApi&f=1&ipt=efbb24956cb69f0068c02d6a53b0cabb80a6f349a711927e3e2e0eca0a4b4a7d&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.aZB3249B6GhVFVwBiEOd5gHaHa%26pid%3DApi&f=1&ipt=73ff024be3d21b29ee63d0e9938dd6363b10fe476f7bc9cfa56be5223db0ee50&ipo=images"
+    ],
+                "Semmelweis reflex": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.explicit.bing.net%2Fth%3Fid%3DOIP.Qwv11Iujc0ld351WWCovXgHaFj%26pid%3DApi&f=1&ipt=80c754fd7b78677b61b316dc4334a8603456fc9bb5cc302afdc15f335e7dfdec&ipo=images"
+    ],
+                "Simple Magnetic Overunity Toy": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.rsYb1oLhU6iLt46W-ac2hQAAAA%26pid%3DApi&f=1&ipt=6b7f03742ce8434d988b7f98461ae5c75f5f70d663db2381539c6fea532e2e84&ipo=images"
+    ],
+                "Social-desirability bias": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.QnpSHJ2RlxkT7ddwK0frggHaD4%26pid%3DApi&f=1&ipt=00574e8dc2953c20f67322be4667425bed24bdc579ac1067c0444447d3bf593a&ipo=images"
+    ],
+                "Solenoid": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.aHSMc_mQ9ddC_r28z96AHwHaDa%26pid%3DApi&f=1&ipt=f956d8b60668fc1f3ddc469e67e467184f365c8a6412338e8096deb8bb562a2d&ipo=images"
+    ],
+                "Speciesism": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.ov_VIQ1fYS860pr2qkPSLQHaFj%26pid%3DApi&f=1&ipt=337ac7db2001a715622017a3f94974b5b2bdaa7831ff5f738e32424ab32c3770&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.explicit.bing.net%2Fth%3Fid%3DOIP.DbOVBqs-xApdW6QkpQAulQHaHa%26pid%3DApi&f=1&ipt=b85fbaa894ecee3fbefa1962e6c6e51a3cca3d01325958a74d4673855c1186a0&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.R-I5eGgTTAbnXn-RRN2LswHaGr%26pid%3DApi&f=1&ipt=8c1065165769bfcd04fe2a213295968498d3bbfaff9361ccfc6e8c08836130f3&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.owLs7Hw7AoseJow7SvScRwHaES%26pid%3DApi&f=1&ipt=a9206e0eb8067cccb24279ee94d0d0b9b43add525cd71f3fa8481d081123251f&ipo=images"
+    ],
+                "Spermatozoon": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.w2JJsb1rZDejJUiM2MwpAQHaEe%26pid%3DApi&f=1&ipt=35efb7411b3e8ccbfacf94f4b611e43e12bff07c8df74b55eadeccf47ebb911e&ipo=images"
+    ],
+                "Stan Meyer Water Fuel Car": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.KTuucnQP6vtLPAbYhbG9lgHaFY%26pid%3DApi&f=1&ipt=53740d64a8902f4bcf84b217cf10884e3456282543cf6cbeb9e76eced7cb462a&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.42FKsPUY3eDZ0IeaDPjFawHaD4%26pid%3DApi&f=1&ipt=73f0d80926f4e933813ce925e2bdbbb85f6155a520b354687f418a069c29a220&ipo=images"
+    ],
+                "Starship Coil": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.Y4JNxtfAJz9PI5QisPrgqwHaFj%26pid%3DApi&f=1&ipt=e9796ffb833297ff9a25889f0df2ce5cc6e0a3b15258de5a4febeabbfa76565b&ipo=images"
+    ],
+                "Status quo bias": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.byc5bLxdl0CtSFdqStrS4gAAAA%26pid%3DApi&f=1&ipt=6b8ba6c8a09c014be44a5e88d3ff2a05a65a366c04ef946cf1a35e5734580c71&ipo=images"
+    ],
+                "Stem cell": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.Nb4_t6pzaK-Lv-asSs61zAHaHB%26pid%3DApi&f=1&ipt=99efa1f7385d7bc977a6871c628e801fca86ab64568b8f7333ace8dbf3caaa96&ipo=images"
+    ],
+                "Straw man": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.axhCZ5psY0jcEhn0d9VO_QHaEK%26pid%3DApi&f=1&ipt=d25a3de973bc6e587ee607e7c13c206be7c24d5c91968d5483a5e5489acaf661&ipo=images"
+    ],
+                "Subliminal stimuli": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Trj7x4XvRvGpefKWmiPrDAHaIA%26pid%3DApi&f=1&ipt=aa531fcd5859b2cf38844e9d7f12b5832ef1d7099c9af77babff520a42e90c1b&ipo=images"
+    ],
+                "Sunk cost": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.A1YrszJs5VU3zNjt8YzsRAHaF-%26pid%3DApi&f=1&ipt=e0c85149a5a530bf3ef4228a6bdd6bdc98b1dceec0927d5f326beef4e80cf678&ipo=images"
+    ],
+                "Stallion 3D: Aerodynamics Simulation Software": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.RqvaJbdOuBGUdTn78EdmAQHaEo%26pid%3DApi&f=1&ipt=ec15b943e73d96fff539e52ffb37a30725a4f2fec8b80a5f4d26a13578c73d5d&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP._0HezK6SFi7l7x3Y8o4oZwHaD5%26pid%3DApi&f=1&ipt=03c4c101c5d93ebfdaed55642b4c34a8d008d59ec2e531ed4b265b4a1d91a7a0&ipo=images"
+    ],
+                "Sympathetic Resonance": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.WZYLAcvzHaQeyjOUz1aOzgHaFL%26pid%3DApi&f=1&ipt=e8cf286607b4bee6cbf50a44ca3624fa431a1571dfa4d2862ad20a41ef178eaa&ipo=images"
+    ],
+                "Tagyeta": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.afrLOQeoqm0zB8Qo9jW9FgAAAA%26pid%3DApi&f=1&ipt=eba68d86f98a4499398457ca5a8168ae2d5bad89d8e412f504969deb04e47bae&ipo=images"
+    ],
+                "Taxonomy (biology)": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.6Ki83AlS2dtyS4BHt0_-KAHaHa%26pid%3DApi&f=1&ipt=52144ad98af82b085646b7bcfe01e3cdcc0b4beb0470b8bae03fd95867aeaec0&ipo=images"
+    ],
+                "Telomeres": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.bhavWpy504axaf_PkHUQ_wHaHa%26pid%3DApi&f=1&ipt=99208812a0b3b009476f6bf1e6c5f83d202ddc2c43bc665aa453fd0b06823de2&ipo=images"
+    ],
+                "Tesla Coil": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.ionneTdNRnBZIk1mfV52mQHaF9%26pid%3DApi&f=1&ipt=82c47fe17a72fabcbf7e414ceecc30797be4a6d4dda546e88170216b636db7a5&ipo=images"
+    ],
+                "Thomas Townsend Brown": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.1oY6gC8RtGoFFjr0nwwJRAHaKw%26pid%3DApi&f=1&ipt=ae3d54594efecd9b5961f352fbe9d8c8c49a29f80dc08b0c937ab0aed957355d&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.L06P1Msaqhsv2QYetaFeWgHaCd%26pid%3DApi&f=1&ipt=07c9101ce9d37dbee98844cc5de37abfa0ceed4ddefbd5d490e6cfa40751f545&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.cKprHBwmA9OB1MgDCVBZWAAAAA%26pid%3DApi&f=1&ipt=3d10fa1f4b1033d59e15c6ca8bfa188ccef5fd51554f3f6b4d581fb6266913ee&ipo=images"
+    ],
+
+                "Thrust vectoring": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Hm_9qUAvPZ0GnerKDYKseAAAAA%26pid%3DApi&f=1&ipt=7cdf75c10fe4b370f146c93989dd332707c132217160e05ab359610d91f897a4&ipo=images"
+    ],
+                "Toroidal and poloidal coordinates": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.XhzlnlJEDHWl9LeyUiIFQwHaGC%26pid%3DApi&f=1&ipt=a9e23823cc463fb692660581d3bfca456d2acb04e34039b8d48e4e9dd025a2d1&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.BzkC1T7Ljp8xYoDu_FEUBgHaDk%26pid%3DApi&f=1&ipt=bf0f7d25beed162fd1de34e744f7084733b128dde7be8a6d862b7218dbb58beb&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.UKI8M8GQlSxc2654r7DABgHaEq%26pid%3DApi&f=1&ipt=9880b8d33e0c5a08dff0912122ef2258964fcf8bf4036f9f70f9e6ac70425f71&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.r4YfEqjf_KZJIelKcoeilwHaDb%26pid%3DApi&f=1&ipt=bf717062896c44d42c0bfa5fb19f3d560b9e3552fafb549f22294df6a64dea32&ipo=images"
+    ],
+                "Torus": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.o3uIhciQkSeGTb3SYmHt6QAAAA%26pid%3DApi&f=1&ipt=7d617db07934207942c8c79c6ed7d2c432bc5b731ae88cff12e0ccb0bb75f064&ipo=images"
+    ],
+                "Tractor beam": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.SgBIvwH0a3Ojlyyobn6rJQHaFt%26pid%3DApi&f=1&ipt=c08ef4fd5bdab1c6560128d6a0166bcef74c60449604c3c57bd34d2b02761b58&ipo=images"
+    ],
+                "Tri-arcuate ballistic electrode": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.rs_C1bcUciiLYk9-anrl-AHaEa%26pid%3DApi&f=1&ipt=84a22aff69ae1de25438883df045dc045b93e9963744a5c076ec9ea8dd603b36&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP._yiOaxXSj3bGfJngyRFPpQAAAA%26pid%3DApi&f=1&ipt=85464acd7f8ebc3504a3b95565a7fb7f4b2b8bec46f88303bcffb7b5b6434dfb&ipo=images"
+    ],
+                "Van Allen radiation belt": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.hEK_CUVmgE7xQta2Dz84pgHaHg%26pid%3DApi&f=1&ipt=a42cac9e972faeb8c1e12bae5e40e39cc8192524816913fc3c3b55e0041a885c&ipo=images"
+    ],
+                "Variable-frequency drive": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.mHZ_w7nlZjwXcIG-JSF8YQHaD4%26pid%3DApi&f=1&ipt=6835a17dc75cba351b60ad36162b68c9f6a0e64c6f3015868a4a45e478809bb5&ipo=images"
+    ],
+                "Vierordts law": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.ExwgR2ExhH7858fWej3OygHaHc%26pid%3DApi&f=1&ipt=7355a55ec05c04532c47c34eaf013f8a15942607116a7fde4584348604b635c5&ipo=images"
+    ],
+                "Vortex ring": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.ziRm5aEGu3vzYY53ggtxDAHaEK%26pid%3DApi&f=1&ipt=3004dff4b0725aca9eb5337ddd1aae80672c3aef367177d0eac69e720f053329&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.snmGcruRhPMDkGgqzD1fiAHaE7%26pid%3DApi&f=1&ipt=3322f9dc06563dc529d5889072d82fd841c03b794deab67dde63ca48e9a0844f&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.U5w8kFwzfj07xk1QTI0rewHaEK%26pid%3DApi&f=1&ipt=1ee3c836b4ecbc9528472a179550884dffdb3d9e46adfd494db6bbb2627306b9&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.uV1Isu2wCJUzJWPHIyGbTgHaLb%26pid%3DApi&f=1&ipt=d97f595bcff1a267bdef7c58898a8449a0d33ef4760a157b28c1f883384b6860&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.cnvTMbN-6t9zieR4v9xvpgHaFj%26pid%3DApi&f=1&ipt=162a4f1d1ed869a29b671e3d6278e6e40838d65631015c0e3ddabbdf77a943ab&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.xpjixZya2nyVclBvw0K1dAHaE7%26pid%3DApi&f=1&ipt=c0c028e769da06c2898dad9c0dc3ea5e652e6e084562796c1c1691ae5058d5d6&ipo=images"
+
+    ],
+                "Waves in plasmas": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.d4l3IPkP-2McoZ5vhdCAbwHaEK%26pid%3DApi&f=1&ipt=fdde500cadb0c6cadd34b3c46f5126956d1178e42890e388945ec31b8af65d0a&ipo=images"
+    ],
+                "Xenophobia": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.lP7bJFxUoIKrV2hqZxQamQAAAA%26pid%3DApi&f=1&ipt=49c3e334bc1d39d88dd6c24990e7a3c489e612120ac3233d97898794a5db17f1&ipo=images",
+    ],
+                "Voronoi diagram": [
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP._AN19GzutP31pMZwlaE3NQHaJQ%26pid%3DApi&f=1&ipt=e501cb4010830d58a1532f995c2f4bd1f12abccfecc3e16a80e50a2e5aaa33fe&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.o9DF82p1Od-2menNhyNXLgHaHM%26pid%3DApi&f=1&ipt=2d86e85e79e0fbe3e31b164e8c1dc72513999ba1908e2814eecccebb3305d92e&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.cP2OMiny_PcnfSTP2AhBnQAAAA%26pid%3DApi&f=1&ipt=14af6877d915827b32388eca4150c9b1cfc7c22849b57b2f32a5eea99b8f4939&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.KAz8thz2TPJZODcidL4ScQAAAA%26pid%3DApi&f=1&ipt=cea74dd1a6284dcd714167fcfdc3b4e30a6847ce1642bbf517d11657c29bdc6c&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.zmuu_t2iwhzx6PdVj5GlJAHaD4%26pid%3DApi&f=1&ipt=f81b61d370d89a6c63bfd7104b849257fd688c18b5906351bdd56117737b6e25&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.Qy38KTQCMdp9PK_zxFEVWQHaEK%26pid%3DApi&f=1&ipt=b377bd903840e3164277fb981352e588e8b215c93e4787d50e3f81fef3cc59d8&ipo=images"
+    ]
+
+
+
+    
 }
 
 app = Flask(__name__)
@@ -748,16 +857,31 @@ def get_terminology_summaries():
     technology_terminologies = sorted(technology_terminologiesa)
     result = " \n\n"
 
-    result += "<html><head><style>body {background-color: ; color: black; font-family: Silom, sans-serif;}" \
-              " .image-container { display: flex; justify-content: center; gap: 10px; }" \
-              " img { width: 200px; height: auto; }</style></head><body>"
+    result += "<html><head><style>" \
+          "body {" \
+          "background-color: ;" \
+          "color: black;" \
+          "font-family: 'Montserrat', sans-serif;" \
+          "width: 800px; /* Adjust as needed */" \
+          "margin: 0 auto;" \
+          "overflow: auto;" \
+          "}" \
+          ".image-container { display: flex; justify-content: center; gap: 6px; }" \
+          "img { width: 200px; height: auto; }" \
+          "</style></head><body>"
+# The above code allows scrolling by setting overflow to auto.
+
+
+
+
+
 
     for current_terminology, term in enumerate(technology_terminologies, start=1):
         url = "https://duckduckgo.com/?q=" + term.replace(" ", "+")
         url_image = f"https://duckduckgo.com/?q={term}&iax=images&ia=images"
 
-        webbrowser.open(url_image)
-        time.sleep(30)
+        #webbrowser.open(url_image)
+        #time.sleep(30)
 
         wikipedia_page = requests.get(f"https://en.wikipedia.org/wiki/{term}")
         soup = BeautifulSoup(wikipedia_page.text, 'html.parser')
@@ -781,9 +905,10 @@ def get_terminology_summaries():
         images_html = f"<div class='image-container'>" + "".join([f"<img src='{img_url}' alt='{term}'>" for img_url in image_urls]) + "</div>"
 
         result += (
-            f"<div style='text-align: center; margin: 50px;'>"
-            f"<h3>Terminology Summary {current_terminology} of {len(technology_terminologies)}: {term}</h3>"
-            f"<p style='font-size:13px;'>{summary}</p>"
+            f"<div style='text-align: center; margin: 20px;'>"
+            f"<h3 style='font-family: Arial; font-size: 13px; color: red;'>Terminology Summary {current_terminology} of {len(technology_terminologies)}: {term}</h3>"
+            
+            f"<p style='font-size:11px;'>{summary}</p>"
             f"{images_html}"
             f"</div>"
         )
@@ -793,16 +918,6 @@ def get_terminology_summaries():
 if __name__ == '__main__':
     webbrowser.open_new('http://127.0.0.1:5000/')
     app.run(debug=True, use_reloader=False)
-
-
-
-
-
-
-
-
-
-
 
 
 
