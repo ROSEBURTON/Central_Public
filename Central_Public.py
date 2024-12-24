@@ -336,7 +336,9 @@ technology_terminologiesa = [
 'Wishful thinking',
 'World Wireless System',
 'Xenophobia',
-'Zeigarnik effect'
+'Zeigarnik effect',
+'Masaru Emoto',
+'Source-sink dynamics'
 
 ]
 
@@ -917,6 +919,7 @@ def get_terminology_summaries():
 
 if __name__ == '__main__':
     webbrowser.open_new('http://127.0.0.1:5000/')
+    #webbrowser.open_new('http://Ecocapsule')
     app.run(debug=True, use_reloader=False)
 
 
